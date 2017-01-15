@@ -1,5 +1,3 @@
-isPathAbsolute = require 'path-is-absolute'
-
 # Public: The main auto-launch class
 module.exports = class AutoLaunch
 
@@ -22,8 +20,6 @@ module.exports = class AutoLaunch
 
         versions = process?.versions
         if path?
-            # Verify that the path is absolute
-            throw new Error 'path must be absolute' unless isPathAbsolute path
             @opts.appPath = path
 
         else if versions? and (versions.nw? or versions['node-webkit']? or versions.electron?)
